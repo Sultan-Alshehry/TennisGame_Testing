@@ -175,4 +175,38 @@ public class TennisGameTest {
 		assertEquals("Three points is incorrect", "love - 40", score);
 	}
 	
+	@Test
+	public void player1WinsWith2PointLead() throws TennisGameException {
+		//Arrange
+		TennisGame game = new TennisGame();
+		//act
+		game.player1Scored();
+		game.player1Scored();
+		game.player1Scored();
+		game.player2Scored();
+		game.player2Scored();
+		game.player1Scored();
+		
+		String score = game.getScore() ;
+
+		assertEquals("player1 lead victory error", "player1 wins", score);
+	}
+	
+	@Test
+	public void player2WinsWith2PointLead() throws TennisGameException {
+		//Arrange
+		TennisGame game = new TennisGame();
+		//act
+		game.player1Scored();
+		game.player1Scored();
+		game.player2Scored();
+		game.player2Scored();
+		game.player2Scored();
+		game.player2Scored();
+		
+		String score = game.getScore() ;
+
+		assertEquals("player2 lead victory error", "player2 wins", score);
+	}
+	
 }
